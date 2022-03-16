@@ -1,0 +1,24 @@
+def solution(id_list, report, k):
+    answer = []
+    report = list(set(report)) # 중복 제거
+    dic_map = {}
+    dic = {}
+    for i, name in enumerate(id_list):
+        dic[name] = []
+        dic_map[name] = i
+        answer.append(0)
+
+
+    for i in report:
+        from_, to_ = i.split()
+        dic[to_].append(from_)
+
+    for name in id_list:
+        if len(dic[name]) >= k:
+            for one in dic[name]:
+                answer[dic_map[one]] += 1
+
+    return answer
+    
+    
+# https://programmers.co.kr/learn/courses/30/lessons/92334
