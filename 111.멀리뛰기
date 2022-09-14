@@ -1,0 +1,11 @@
+## DP
+
+def solution(n):
+    answer = 0
+    note = [0] * (n+1)
+    note[0] = 1
+    note[1] = 2
+    if n <= 2: return note[n-1]
+    for i in range(3, n+1):
+        note[i-1] = (note[i-2] + note[i-3]) % 1234567
+    return note[n-1] 
