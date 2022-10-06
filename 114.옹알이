@@ -1,0 +1,12 @@
+def solution(babbling):
+    answer = 0
+    for i in babbling:
+        if 'ayaaya' in i or 'yeye' in i or 'woowoo' in i or 'mama' in i:
+            continue
+        if 'aya' in i : i = i.replace('aya', '')
+        if 'ye' in i : i = i.replace('ye', '')
+        if 'woo' in i : i = i.replace('woo', '')
+        if 'ma' in i : i = i.replace('ma', '')
+        if len(i) == 0:
+            answer += 1
+    return answer
